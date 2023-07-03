@@ -1,6 +1,3 @@
-import * as PropTypes from "prop-types";
-
-
 const App = () => {
     const Header = (header) => {
         return (
@@ -11,7 +8,7 @@ const App = () => {
 
         return (
             <>
-                <p>
+{/*                <p>
                     {content.content1.part} {content.content1.exercise}
                 </p>
                 <p>
@@ -19,7 +16,13 @@ const App = () => {
                 </p>
                 <p>
                     {content.content3.part} {content.content3.exercise}
-                </p>
+                </p>*/}
+
+                <Part
+                    part1 = {{part: content.content1.part, exercise: content.content1.exercise}}
+                    part2 = {{part: content.content2.part, exercise: content.content2.exercise}}
+                    part3 = {{part: content.content3.part, exercise: content.content3.exercise}}
+                />
 
 {/*
                 {Object.keys(content).map(key => (
@@ -36,6 +39,16 @@ const App = () => {
     const Total = (total) => {
         return (
           <p> Number of exercises {total.total} </p>
+        )
+    }
+
+    const Part = (part) => {
+        return (
+            <div>
+                <p>{part.part1.part} {part.part1.exercise}</p>
+                <p>{part.part2.part} {part.part2.exercise}</p>
+                <p>{part.part3.part} {part.part3.exercise}</p>
+            </div>
         )
     }
 
