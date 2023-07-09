@@ -158,9 +158,7 @@ const App = () => {
         }
     }
 
-    const set = () => {
-        setValue(0)
-    }
+
 
     return (
         <div>
