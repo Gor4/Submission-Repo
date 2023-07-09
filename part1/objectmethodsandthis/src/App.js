@@ -158,11 +158,11 @@ const Display = props => <div>{props.value}</div>
 const App = () => {
     const [value, setValue] = useState(10)
 
-    const hello = (who) => {
-        return () => {
-            console.log('hello', who)
-        }
-    }
+    // const hello = (who) => {
+    //     return () => {
+    //         console.log('hello', who)
+    //     }
+    // }
 
     const setToValue = (newValue) => () => {
         console.log('value now', newValue)  // print the new value to console
