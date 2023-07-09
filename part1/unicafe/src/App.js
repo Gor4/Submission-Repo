@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component, useState} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Title = (prop) => {
+    return (
+        <h1>
+            {prop.title}
+        </h1>
+    )
 }
 
-export default App;
+const Button = (button) => {
+    return (
+        <button onClick={() => button.action(button.value + 1)}> {button.text}</button>
+    )
+}
+
+const FeedbackSum = (feedback) => {
+    return (
+        <div>
+            {feedback.text} {feedback.value}
+        </div>
+    )
+}
+
+const App = () => {
+    // save clicks of each button to its own state
+    const [good, setGood] = useState(0)
+    const [neutral, setNeutral] = useState(0)
+    const [bad, setBad] = useState(0)
+
+    return (
+        <div>
+            <Title title={"give feedback"}/>
+
+            <Button text={"good"} value={good} action={setGood}/>
+            <Button text={"neutral"} value={neutral} action={setNeutral}/>
+            <Button text={"bad"} value={bad} action={setBad}/>
+
+            <Title title={"statistics"}/>
+
+            <FeedbackSum text={"good"} value={good}/>
+            <FeedbackSum text={"neutral"} value={neutral}/>
+            <FeedbackSum text={"bad"} value={bad}/>
+        </div>
+    )
+}
+
+export default App
