@@ -149,6 +149,12 @@ import {useState} from "react";
 //     )
 // }
 
+const Button = (props) => (
+    <button onClick={props.test}>
+        {props.text}
+    </button>
+)
+const Display = props => <div>{props.value}</div>
 const App = () => {
     const [value, setValue] = useState(10)
 
@@ -158,16 +164,21 @@ const App = () => {
         }
     }
 
-
+    const setToValue = (newValue) => () => {
+        console.log('value now', newValue)  // print the new value to console
+        setValue(newValue)
+    }
 
     return (
         <div>
-            {value}
-            <button onClick={hello('world')}>button</button>
-            <button onClick={hello('react')}>button</button>
-            <button onClick={hello('function')}>button</button>
+            <Display value={value} />
+            <Button test={() => setToValue(1000)} text="thousand"/>
+            <Button test={() => setToValue(0)} text="reset"/>
+            <Button test={() => setToValue(value + 1)} text="increment"/>
         </div>
     )
 }
+
+
 
 export default App
