@@ -1,4 +1,4 @@
-import {Component, useState} from 'react'
+import {useState} from 'react'
 
 const Title = (prop) => {
     return (
