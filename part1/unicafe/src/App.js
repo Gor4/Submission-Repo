@@ -11,22 +11,24 @@ const Title = (prop) => {
 const Statistics = (object) => {
     return (
         <table>
+            <tbody>
             <StatisticLine text={object.statistics.names[1]} value={object.statistics.values[1]}/>
             <StatisticLine text={object.statistics.names[2]} value={object.statistics.values[2]}/>
             <StatisticLine text={object.statistics.names[3]} value={object.statistics.values[3]}/>
             <StatisticLine text={object.statistics.names[4]} value={object.statistics.values[4]}/>
             <StatisticLine text={object.statistics.names[5]} value={object.statistics.values[5]}/>
             <StatisticLine text={object.statistics.names[6]} value={object.statistics.values[6]}/>
+            </tbody>
         </table>
     )
 }
 
 const StatisticLine = (feedback) => {
     return (
-            <tr>
-                <td style={{width: 50}}> {feedback.text} </td>
-                <td style={{width: 50}}> {feedback.value} </td>
-            </tr>
+        <tr>
+            <td style={{width: 50}}> {feedback.text} </td>
+            <td style={{width: 50}}> {feedback.value} </td>
+        </tr>
     )
 }
 
